@@ -6,8 +6,8 @@ export default function Input() {
   const getSearchResult = async () => {
     const param = document.getElementById("search").value;
     await axios.get(`/api/search?recipe_search=${param}`).then((res) => {
-      console.log(res);
-    })
+      console.log('res: ', res);
+    });
   }
 
   return (

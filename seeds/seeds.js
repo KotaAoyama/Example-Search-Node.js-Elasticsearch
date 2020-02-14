@@ -71,3 +71,6 @@ async function run () {
 }
 
 run().catch(console.log)
+
+
+module.exports = { ES_INDEX };
