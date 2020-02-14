@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <h3>Recipe Search</h3>
       <Input />
-      
+      <hr/>
       <Output />
     </div>
   );
