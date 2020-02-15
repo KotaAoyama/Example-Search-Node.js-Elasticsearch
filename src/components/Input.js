@@ -13,7 +13,7 @@ export default function Input() {
   return (
     <>
         <fieldset>
-          <input id="search" name="recipe_search" size="40"></input>
+          <input id="search" name="recipe_search" size="40" placeholder="Search..."></input>
           <button onClick={() => getSearchResult()}>Search</button>
         </fieldset>
     </>

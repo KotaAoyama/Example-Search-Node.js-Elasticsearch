@@ -35,22 +35,45 @@ const setupServer = () => {
       ]
     }).catch(console.log);
 
-    const result = [];
+    const hitDocIds = [];
 
     for (const responsesPerSearch of body.responses) {
 
       if (responsesPerSearch.hits.hits.length > 0) {
-        for (const resPerSearch of responsesPerSearch.hits.hits) {
-
-          if (!result.includes(resPerSearch._id)) {
-            result.push(resPerSearch._id);
+        for (const hitDoc of responsesPerSearch.hits.hits) {
+          
+          console.log('hitDoc', hitDoc);
+          if (!hitDocIds.includes(hitDoc._id)) {
+            hitDocIds.push(hitDoc._id);
           }
         }
       }
     }
-    console.log('result', result, result.length);
-    res.send(result);
+    console.log('hitDocIds', hitDocIds, hitDocIds.length);
+
+    const hitDocuments = [];
+    const promises = [];
+
+    hitDocIds.forEach((hitDocId) => {
+      // all promises have pending state
+      promises.push(getDoc(hitDocId));
+    });
+
+    Promise.all(promises)
+    .then(bodies => {
+      bodies.forEach(body => hitDocuments.push(body))
+    })
+    .then(() => res.send(hitDocuments))
+    .catch(console.log);
   });
+
+  const getDoc = (id) => {
+    return client.get({
+      index: ES_INDEX,
+      id
+    })
+    .then(res => res.body)
+  }
 
   return app;
 };
