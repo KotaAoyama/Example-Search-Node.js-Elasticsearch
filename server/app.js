@@ -35,7 +35,7 @@ const setupServer = () => {
       ]
     }).catch(console.log);
 
-    const hitDocIds = [];
+    const distinctHitDocIds = [];
 
     for (const responsesPerSearch of body.responses) {
 
@@ -43,27 +43,27 @@ const setupServer = () => {
         for (const hitDoc of responsesPerSearch.hits.hits) {
           
           console.log('hitDoc', hitDoc);
-          if (!hitDocIds.includes(hitDoc._id)) {
-            hitDocIds.push(hitDoc._id);
+          if (!distinctHitDocIds.includes(hitDoc._id)) {
+            distinctHitDocIds.push(hitDoc._id);
           }
         }
       }
     }
-    console.log('hitDocIds', hitDocIds, hitDocIds.length);
+    console.log('distinctHitDocIds', distinctHitDocIds, distinctHitDocIds.length);
 
-    const hitDocuments = [];
+    const distinctHitDocs = [];
     const promises = [];
 
-    hitDocIds.forEach((hitDocId) => {
+    distinctHitDocIds.forEach((hitDocId) => {
       // all promises have pending state
       promises.push(getDoc(hitDocId));
     });
 
     Promise.all(promises)
     .then(bodies => {
-      bodies.forEach(body => hitDocuments.push(body))
+      bodies.forEach(body => distinctHitDocs.push(body))
     })
-    .then(() => res.send(hitDocuments))
+    .then(() => res.send(distinctHitDocs))
     .catch(console.log);
   });
 
