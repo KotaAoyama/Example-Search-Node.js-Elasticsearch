@@ -32,13 +32,11 @@ const setupServer = () => {
 
         { index: ES_INDEX },
         { query: { match: { tags: query } } },
-
-        { index: ES_INDEX },
-        { query: { match: { author: query } } },
       ]
     }).catch(console.log);
 
     const result = [];
+
     for (const responsesPerSearch of body.responses) {
 
       if (responsesPerSearch.hits.hits.length > 0) {
