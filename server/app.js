@@ -66,8 +66,8 @@ const setupServer = () => {
     .catch(console.log);
   });
 
-  const getDocument = (id) => {
-    return client.get({
+  const getDocument = async (id) => {
+    return await client.get({
       index: ES_INDEX,
       id
     })
