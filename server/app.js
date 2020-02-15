@@ -36,6 +36,8 @@ const setupServer = () => {
     }).catch(console.log);
 
     const distinctHitDocIds = [];
+    const distinctHitDocs = [];
+    const promises = [];
 
     for (const responsesPerSearch of body.responses) {
 
@@ -51,12 +53,9 @@ const setupServer = () => {
     }
     console.log('distinctHitDocIds', distinctHitDocIds, distinctHitDocIds.length);
 
-    const distinctHitDocs = [];
-    const promises = [];
-
     distinctHitDocIds.forEach((hitDocId) => {
       // all promises have pending state
-      promises.push(getDoc(hitDocId));
+      promises.push(getDocument(hitDocId));
     });
 
     Promise.all(promises)
@@ -67,12 +66,12 @@ const setupServer = () => {
     .catch(console.log);
   });
 
-  const getDoc = (id) => {
+  const getDocument = (id) => {
     return client.get({
       index: ES_INDEX,
       id
     })
-    .then(res => res.body)
+    .then(document => document.body)
   }
 
   return app;
