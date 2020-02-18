@@ -67,11 +67,11 @@ const setupServer = () => {
   });
 
   const getDocument = async (id) => {
-    return await client.get({
+    const document = await client.get({
       index: ES_INDEX,
       id
-    })
-    .then(document => document.body)
+    });
+    return document.body;
   }
 
   return app;
