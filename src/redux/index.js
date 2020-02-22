@@ -21,6 +21,12 @@ export function setSelectedRecipe(recipe) {
   }
 }
 
+export function removeSelectedRecipe() {
+  return {
+    type: "REMOVE_SELECTED_RECIPE"
+  }
+}
+
 // Reducer
 export function reducer(state = initialState, action) {
   switch (action.type) {
@@ -28,7 +34,11 @@ export function reducer(state = initialState, action) {
       console.log({ ...state, searchedResults: action.results });
       return { ...state, searchedResults: action.results };
     case "SET_SELECTED_RECIPE":
-      return { ...state, selectedRecipe: action.selectedRecipe };
+      console.log({...state, selectedRecipe: action.recipe });
+      return { ...state, selectedRecipe: action.recipe };
+    case "REMOVE_SELECTED_RECIPE":
+      console.log({ ...state, selectedRecipe: null });
+      return { ...state, selectedRecipe: null };
     default:
       return state;
   }
