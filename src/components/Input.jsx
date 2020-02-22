@@ -8,7 +8,6 @@ export default function Input() {
   const dispatch = useDispatch();
   
   const getSearchResult = async (event) => {
-    console.log('event.keyCode: ', event.keyCode);
     if (event.keyCode === 13) {
       const param = document.getElementById("search").value;
       const response = await axios.get(`/api/search?recipe_search=${param}`);
