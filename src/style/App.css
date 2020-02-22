@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+  font-size: 30px;
+}
+
+#S, #r {
+  color: #4285F4;
+}
+
+#S {
+  font-size: 1.2em;
+}
+
+#e, #h {
+  color: #DB4437;
+}
+
+#a {
+  color: #F4B400;
+}
+
+#c {
+  color: #0F9D58;
+}
