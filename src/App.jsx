@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import Input from'./components/Input';
-import Output from './components/Output';
+import RecipeList from './components/RecipeList';
 
 function App() {
   return (
     <div className="App">
-      <h3>Recipe Search</h3>
+      <h1>Recipe Search</h1>
       <Input />
       <hr/>
-      <Output />
+      <RecipeList />
     </div>
   );
 }

@@ -16,7 +16,7 @@ export default function Input() {
   return (
     <>
       <fieldset>
-        <input id="search" name="recipe_search" size="40" placeholder="Search..."></input>
+        <input id="search" name="recipe_search" size="60" placeholder="Search..."></input>
         <button onClick={() => getSearchResult()}>Search</button>
       </fieldset>
     </>
