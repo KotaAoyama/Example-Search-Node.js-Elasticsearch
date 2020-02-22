@@ -1,9 +1,10 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { removeSelectedRecipe } from '../redux/index';
 
 export default function SingleRecipe() {
 
+  const selectedRecipe = useSelector(state => state.selectedRecipe);
   const dispatch = useDispatch();
 
   function goBackSearch() {
@@ -12,7 +13,7 @@ export default function SingleRecipe() {
 
   return (
     <>
-      <h4 onClick={() => goBackSearch()}>
+      <h4 id="goBackSearch" onClick={() => goBackSearch()}>
         Recipe 
         <span id="S">S</span>
         <span id="e">e</span>
@@ -22,9 +23,9 @@ export default function SingleRecipe() {
         <span id="h">h</span>
       </h4>
 
-
-
-
+      <div id="showDocument">
+        {JSON.stringify(selectedRecipe)}
+      </div>
     </>
   )
 }

@@ -16,7 +16,7 @@ export default function App() {
       return (
         <>
           <h1>
-            Recipe 
+            Recipe
             <span id="S">S</span>
             <span id="e">e</span>
             <span id="a">a</span>
