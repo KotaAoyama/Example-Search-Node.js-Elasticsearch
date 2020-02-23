@@ -29,9 +29,13 @@ https://www.elastic.co/guide/en/elasticsearch/reference/current/install-elastics
 
 ```yarn dev```
 
-7. Start react app
+7. Build
+
+```yarn build```
+
+8. Start app
 
 ```yarn start```
 
-8. look http://localhost:3000/
+9. look http://localhost:3000/
 
