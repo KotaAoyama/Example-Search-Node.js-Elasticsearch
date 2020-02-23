@@ -9,7 +9,6 @@ export default function App() {
   const selectedRecipe = useSelector(state => state.selectedRecipe);
   
   function searchOrSingleRecipe() {
-    console.log('*********', selectedRecipe);
     if (selectedRecipe) {
       return (<SingleRecipe />);
     } else {

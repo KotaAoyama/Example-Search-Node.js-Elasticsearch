@@ -63,7 +63,7 @@ export default function SingleRecipe() {
             </tr>
             <tr>
               <td>tags</td>
-              <td>{selectedRecipe.tags}</td>
+              <td>{selectedRecipe.tags.toString()}</td>
             </tr>
             <tr>
               <td>author</td>

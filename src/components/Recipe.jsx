@@ -6,7 +6,6 @@ export default function Recipe(props) {
   const dispatch = useDispatch();
 
   function selectRecipe(selectedRecipe) {
-    console.log('selectedRecipe', selectedRecipe);
     dispatch(setSelectedRecipe(selectedRecipe));
   }
 
