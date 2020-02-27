@@ -1,0 +1,5 @@
+.searchedRecipeResult:hover {
+  cursor: pointer;
+  color: darkblue;
+  text-decoration: underline;
+}

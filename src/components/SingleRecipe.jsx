@@ -14,14 +14,16 @@ export default function SingleRecipe() {
 
   return (
     <>
-      <h4 id="goBackSearch" onClick={() => goBackSearch()}>
-        Recipe 
-        <span id="S">S</span>
-        <span id="e">e</span>
-        <span id="a">a</span>
-        <span id="r">r</span>
-        <span id="c">c</span>
-        <span id="h">h</span>
+      <h4>
+        <span id="goBackSearch" onClick={() => goBackSearch()}>
+          Recipe 
+          <span id="S">S</span>
+          <span id="e">e</span>
+          <span id="a">a</span>
+          <span id="r">r</span>
+          <span id="c">c</span>
+          <span id="h">h</span>
+        </span>
       </h4>
 
       <div id="showDocument">
