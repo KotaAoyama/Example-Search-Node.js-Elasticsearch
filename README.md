@@ -1,7 +1,6 @@
 <a href="https://www.linkedin.com/in/kota-aoyama/" target="_blank"><img src="https://user-images.githubusercontent.com/16607351/75542811-df218700-5a63-11ea-9517-bf177185b838.png" width="150"></a>
 
 
-
 # Search engine with Node.js, Elasticsearch and React
 
 This is a simple search engine with Node.js, Elasticsearch and React.
