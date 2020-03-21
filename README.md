@@ -23,7 +23,7 @@ This is a simple search engine with Node.js, Elasticsearch and React.
 
 #### 5. Change the directory and start Elasticsearch (modify versions)
 
-```elasticsearch-7.5.2/bin/elasticsearch```
+```<your_path>/elasticsearch-<version>/bin/elasticsearch```
 
 #### 6. Start server
 
