@@ -3,8 +3,8 @@
 const express = require("express");
 const path = require("path");
 const { ES_INDEX } = require("../seeds/seeds");
-const { Client } = require('@elastic/elasticsearch')
-const client = new Client({ node: 'http://localhost:9200' })
+const { Client } = require('@elastic/elasticsearch');
+const client = new Client({ node: 'http://localhost:9200' });
 
 const setupServer = () => {
   
@@ -51,10 +51,8 @@ const setupServer = () => {
         }
       }
     }
-    console.log('distinctHitDocIds', distinctHitDocIds, distinctHitDocIds.length);
 
     distinctHitDocIds.forEach((hitDocId) => {
-      // all promises have pending state
       promises.push(getDocument(hitDocId));
     });
 
