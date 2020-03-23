@@ -10,6 +10,7 @@ export default function SingleRecipe() {
   function goBackSearch() {
     dispatch(removeSelectedRecipe());
   }
+  
   return (
     <>
       <h4>
