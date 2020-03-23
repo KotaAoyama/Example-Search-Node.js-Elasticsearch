@@ -5,13 +5,10 @@ const path = require('path');
 const fs = require('fs');
 const directoryPath = path.join(__dirname, 'data');
 const { Client } = require('@elastic/elasticsearch')
-
 const client = new Client({ node: 'http://localhost:9200' })
 const ES_INDEX = 'recipe';
 
-
 async function run () {
-
   const { body } = await client.indices.exists({
     index: ES_INDEX
   })
@@ -20,7 +17,6 @@ async function run () {
       index: ES_INDEX
     })
   }
-
   const dataset = [];
   
   fs.readdir(directoryPath, (err, files) => {
@@ -40,13 +36,12 @@ async function run () {
     
     async function bulk() {
       const { body: bulkResponse } = await client.bulk({ refresh: true, body });
-
+      
       if (bulkResponse.errors) {
         const erroredDocuments = []
         
         bulkResponse.items.forEach((action, i) => {
           const operation = Object.keys(action)[0]
-          
           if (action[operation].error) {
             erroredDocuments.push({
               status: action[operation].status,
@@ -65,6 +60,5 @@ async function run () {
 }
 
 run().catch(console.log)
-
 
 module.exports = { ES_INDEX };
